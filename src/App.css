@@ -30,3 +30,34 @@
 .filmCategoryTitle {
   font-weight: 800;
 }
+
+.topBlock {
+  background: #333842;
+  padding: 10px 25px 0;
+  border-bottom: 5px solid #212121;
+  margin-bottom: 20px;
+}
+
+.footer {
+  background: #212121;
+  padding: 20px 0;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart {
+  margin: 0 10px;
+  color: crimson;
+}
+
+.listWrapper {
+  background: #333842;
+  border-top: 3px solid #212121;
+  padding: 20px 0;
+}
+
+.listItem {
+}

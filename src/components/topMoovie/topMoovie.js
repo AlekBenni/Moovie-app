@@ -27,7 +27,7 @@ const TopMoovie = () => {
     return (
         <>
         <div className="filmCategory">
-          <div className="filmCategoryTitle">Moovie category: TOP</div>
+          <div className="filmCategoryTitle">Moovie category: Most popular</div>
         </div>
         {resultMoovie}
         </>

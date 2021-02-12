@@ -4,7 +4,9 @@ const initState = {
     moovies: [],
     ganres: [],
     perfect: [],
-    film: []
+    film: [],
+    popularFilm: [],
+    filmYear: []
 }
 
 export const moovieReducer = (state = initState, action) => {
@@ -17,7 +19,11 @@ export const moovieReducer = (state = initState, action) => {
             return {...state, perfect: action.perfect} 
         case 'SET_FILM' :
             return {...state, film: action.film}    
-        default: return state    
+        case 'POP_FILM':
+            return {...state, popularFilm: action.film}   
+        case 'FILM_YEAR':
+            return {...state, filmYear: action.film}    
+        default: return state 
     }
 }
 export const setMoovieAC = (moovie) => ({type: 'SET_MOOVIE', moovie})
@@ -27,6 +33,10 @@ export const setGanresAC = (ganres) => ({type: 'SET_GANRES', ganres})
 export const setPerfectAC = (perfect) => ({type: 'SET_PERFECT', perfect})
 
 export const getFilmAC = (film) => ({type: 'SET_FILM', film}) 
+
+export const popularFilmAC = (film) => ({type: 'POP_FILM', film})
+
+export const filmYearAC = (film) => ({type: 'FILM_YEAR' , film})
 
     //  Вывод фильмов по жанрам
 export const setMoovieTC = (ganre, page) => (dispatch) => {
@@ -71,3 +81,25 @@ export const setFilmTC = (id) => (dispatch) => {
         alert('Something wrong in Film!!!')
     })
 }    
+
+    //  Вывод популярных фильмов
+export const setPopFilmTC = () => (dispatch) => {
+    moovieAPI.getPopFilm()
+    .then((response) => {
+        dispatch(popularFilmAC(response.data.results))
+    })
+    .catch((error) => {
+        alert("Something wrong in POP FILM!!!")
+    })
+}    
+
+    //  Вывод фильма по году
+export const setFilmYearTC = (year) => (dispatch) => {
+    moovieAPI.getFilmByYear(year)
+    .then((response) => {
+        dispatch(filmYearAC(response.data.results))
+    })
+    .catch((error) => {
+        alert("Something wrong in YEAR FILM!!!")
+    })
+}

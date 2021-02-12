@@ -10,13 +10,17 @@ const MooviePage = () => {
 
     useEffect(() => {
         dispatch(setFilmTC([id]))
-    }, [])
-
+    }, [useParams()])
+  
     return (    
         <div class="col">
             <div class="card">
                 <div class="card-image">
-                <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} />           
+                {film.poster_path ?
+                    <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="" /> 
+                    :
+                    <img src="http://www.tashrifat-komeil.com/ru/images/movie-film-reel.jpg" alt="" />
+                    }            
                 </div>
                 <div class="card-content">
                 <span class="card-title">{film.title}</span>    
@@ -24,7 +28,7 @@ const MooviePage = () => {
                 </div>
                 <div class="card-action">
                     
-                {/* <a href="{film.homepage}">This is a link</a> */}
+                 <a href={film.homepage} target="blank">Whatch film</a> 
                 </div>
             </div>
         </div>
