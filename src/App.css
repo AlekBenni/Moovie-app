@@ -59,5 +59,8 @@
   padding: 20px 0;
 }
 
-.listItem {
+.topTitle {
+  padding: 5px 10px;
+  color: #21252b;
+  text-align: center;
 }

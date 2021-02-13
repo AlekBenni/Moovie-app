@@ -13,22 +13,21 @@ const MooviePage = () => {
     }, [useParams()])
   
     return (    
-        <div class="col">
-            <div class="card">
-                <div class="card-image">
+        <div className="col">
+            <div className="card">
+                <div className="card-image">
                 {film.poster_path ?
                     <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt="" /> 
                     :
                     <img src="http://www.tashrifat-komeil.com/ru/images/movie-film-reel.jpg" alt="" />
                     }            
                 </div>
-                <div class="card-content">
-                <span class="card-title">{film.title}</span>    
+                <div className="card-content">
+                <span className="card-title">{film.title}</span>    
                 <p>{film.overview}</p>
                 </div>
-                <div class="card-action">
-                    
-                 <a href={film.homepage} target="blank">Whatch film</a> 
+                <div className="card-action">                  
+                    <a href={film.homepage} target="_blank" >Whatch film</a> 
                 </div>
             </div>
         </div>

@@ -4,14 +4,14 @@ import { useParams, NavLink } from 'react-router-dom'
 import { setFilmYearTC } from '../../bll/moovieReducer'
 
 const MoovieYear = () => {
-    const {year} = useParams()
+    const {years} = useParams()
     const dispatch = useDispatch() 
     const films = useSelector((state) => state.moovie.filmYear)
 
     useEffect(() => {
-        dispatch(setFilmYearTC([year]))
-    },[])
-    console.log(films)
+        dispatch(setFilmYearTC([years]))
+    }, [useParams()])
+    console.log([years])
 
     const resultMoovies = films.map(i => {
         return (

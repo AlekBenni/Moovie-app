@@ -12,32 +12,31 @@ const PopularMoovie = () => {
     },[])
     console.log(popFilm)
     let resultPop = popFilm.map(i => {
-        if(i.poster_path){
          return(
-            <div class="col s4 m2">
-            <div class="card">               
+            <div className="col s4 m2">
+            <div className="card">               
                 <NavLink to={`/moovie/${i.id}`}>             
-                    <div class="card-image waves-effect waves-block waves-light">
+                    <div className="cardT card-image waves-effect waves-block waves-light">
                     {i.poster_path ?
-                    <img src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} alt="" /> 
+                    <img src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} /> 
                     :
-                    <img src="http://www.tashrifat-komeil.com/ru/images/movie-film-reel.jpg" alt="" />
+                    <div>
+                    <img src="http://www.tashrifat-komeil.com/ru/images/movie-film-reel.jpg" />
+                    <div className="topTitle">{i.title}</div>
+                    </div>
                     }          
                     </div>
                 </NavLink>            
             </div>
             </div>             
-        )   
-        }else{return}      
+        )      
     })
 
     return (
         <div className="topBlock">
-        <div class="row">
-              {resultPop[0]}{resultPop[1]}{resultPop[2]}{resultPop[7]}{resultPop[8]}{resultPop[5]}
-        </div>
-                
-
+            <div class="row">
+                {resultPop[0]}{resultPop[1]}{resultPop[2]}{resultPop[3]}{resultPop[4]}{resultPop[5]}
+            </div>
         </div>
     )
 }
